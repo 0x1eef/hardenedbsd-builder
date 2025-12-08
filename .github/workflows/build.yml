@@ -17,6 +17,7 @@ jobs:
       uses: vmactions/freebsd-vm@v1
       with:
         release: "15.0"
+        usesh: true
         run: |
           pkg install -y curl go git xz
           go version
