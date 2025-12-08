@@ -1,10 +1,10 @@
 package curl
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"os/exec"
-	"errors"
 
 	"github.com/hardenedbsd/hardenedbsd-builder/internal/cmd"
 )

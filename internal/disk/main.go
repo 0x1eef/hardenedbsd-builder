@@ -1,16 +1,16 @@
 package disk
 
 import (
+	"github.com/hardenedbsd/hardenedbsd-builder/internal/cmd"
 	"os"
 	"os/exec"
-	"github.com/hardenedbsd/hardenedbsd-builder/internal/cmd"
 )
 
 func Run() error {
-	if err := setup();  err != nil {
+	if err := setup(); err != nil {
 		return err
 	}
-	if err := mount();  err != nil {
+	if err := mount(); err != nil {
 		return err
 	}
 	return nil
@@ -49,7 +49,7 @@ func Teardown() error {
 
 func setup() error {
 	args := []string{"-a", "-t", "vnode", "-f", "image.raw", "-u", "0"}
-  if err := cmd.Run(exec.Command("mdconfig", args...)); err != nil {
+	if err := cmd.Run(exec.Command("mdconfig", args...)); err != nil {
 		return err
 	}
 	return nil
@@ -63,6 +63,3 @@ func mount() error {
 		return cmd.Run(exec.Command("mount", args...))
 	}
 }
-
-
-

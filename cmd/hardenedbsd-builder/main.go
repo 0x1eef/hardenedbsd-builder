@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hardenedbsd/hardenedbsd-builder/internal/xz"
 	"github.com/hardenedbsd/hardenedbsd-builder/internal/curl"
 	"github.com/hardenedbsd/hardenedbsd-builder/internal/disk"
+	"github.com/hardenedbsd/hardenedbsd-builder/internal/xz"
 )
 
 func main() {
