@@ -19,7 +19,7 @@ jobs:
         release: "15.0"
         usesh: true
         run: |
-          pkg install -y curl go git xz
+          pkg install -y curl go git
           go version
           cd hardenedbsd-builder
           go mod tidy
