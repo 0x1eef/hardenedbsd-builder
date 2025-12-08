@@ -21,7 +21,7 @@ jobs:
         run: |
           pkg install -y curl go git
           go version
-          cd hardenedbsd-builder
+          cd ${GITHUB_WORKSPACE}
           go mod tidy
           go run ./cmd/hardenedbsd-builder
 
