@@ -1,0 +1,25 @@
+name: Build HardenedBSD Image
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build image
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build image
+      id: build
+      uses: vmactions/freebsd-vm@v1
+      with:
+        run: |
+          pkg install -y curl go git xz
+          go version
+          cd hardenedbsd-builder
+          go mod tidy
+          go run ./cmd/hardenedbsd-builder
+
