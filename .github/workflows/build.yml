@@ -19,7 +19,7 @@ jobs:
           go version
           cd ${GITHUB_WORKSPACE}
           go mod tidy
-          go run ./cmd/hardenedbsd-builder
+          go run ./...
     - name: Store Image
       uses: actions/upload-artifact@v4
       with:
