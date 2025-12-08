@@ -24,4 +24,9 @@ jobs:
           cd ${GITHUB_WORKSPACE}
           go mod tidy
           go run ./cmd/hardenedbsd-builder
+    - name: Store Image
+      uses: actions/upload-artifact@v4
+        with:
+          name: hardenedbsd-15.0-ufs-amd64.raw
+          path: image.raw
 
