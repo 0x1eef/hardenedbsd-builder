@@ -6,7 +6,7 @@ import (
 	"os/exec"
 )
 
-func Run() error {
+func Mount() error {
 	if err := setup(); err != nil {
 		return err
 	}
@@ -16,7 +16,7 @@ func Run() error {
 	return nil
 }
 
-func Install() error {
+func InstallFiles() error {
 	commands := [][]string{
 		{"mkdir", "-p", "/mnt/home/runner/.ssh"},
 		{"cp", "keys/hardenedbsd-runner.pub", "/mnt/home/runner/.ssh/authorized_keys"},
@@ -33,7 +33,7 @@ func Install() error {
 	return nil
 }
 
-func Teardown() error {
+func Unmount() error {
 	commands := [][]string{
 		{"umount", "/mnt"},
 		{"mdconfig", "-d", "-u", "0"},

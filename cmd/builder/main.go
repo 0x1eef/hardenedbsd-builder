@@ -16,13 +16,13 @@ func main() {
 	if err := xz.Run(); err != nil {
 		abort("error: %v\n", err)
 	}
-	if err := disk.Run(); err != nil {
+	if err := disk.Mount(); err != nil {
 		abort("error: %v\n", err)
 	}
-	if err := disk.Install(); err != nil {
+	if err := disk.InstallFiles(); err != nil {
 		abort("error: %v\n", err)
 	}
-	if err := disk.Teardown(); err != nil {
+	if err := disk.Unmount(); err != nil {
 		abort("error: %v\n", err)
 	}
 }
