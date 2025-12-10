@@ -23,11 +23,12 @@ jobs:
           cd ${GITHUB_WORKSPACE}
           go mod tidy
           go run ./...
-    - name: Checksum and rename image
+          rm *.xz || true
+    - name: Compress image
       run: |
         mv image.raw hardenedbsd-15.0-ufs-amd64.raw
         xz -T0 -v hardenedbsd-15.0-ufs-amd64.raw
-    - name: Upload image to GitHub Release (public)
+    - name: Release image
       uses: ncipollo/release-action@v1
       with:
         tag: hardenedbsd-15-latest
