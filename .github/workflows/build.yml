@@ -20,9 +20,18 @@ jobs:
           cd ${GITHUB_WORKSPACE}
           go mod tidy
           go run ./...
-    - name: Store Image
-      uses: actions/upload-artifact@v4
+    - name: Checksum and rename image
+      run: |
+        mv image.raw hardenedbsd-15.0-ufs-amd64.raw
+        sha256sum hardenedbsd-15.0-ufs-amd64.raw > hardenedbsd-15.0-ufs-amd64.raw.sha256
+    - name: Upload image to GitHub Release (public)
+      uses: ncipollo/release-action@v1
       with:
-        name: hardenedbsd-15.0-ufs-amd64.raw
-        path: image.raw
+        tag: hardenedbsd-15-latest
+        name: "HardenedBSD 15 UFS image"
+        artifacts: |
+          hardenedbsd-15.0-ufs-amd64.raw
+          hardenedbsd-15.0-ufs-amd64.raw.sha256
+        allowUpdates: true
+        generateReleaseNotes: false
 
