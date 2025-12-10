@@ -26,15 +26,14 @@ jobs:
     - name: Checksum and rename image
       run: |
         mv image.raw hardenedbsd-15.0-ufs-amd64.raw
-        sha256sum hardenedbsd-15.0-ufs-amd64.raw > hardenedbsd-15.0-ufs-amd64.raw.sha256
+        xz -T0 -v hardenedbsd-15.0-ufs-amd64.raw
     - name: Upload image to GitHub Release (public)
       uses: ncipollo/release-action@v1
       with:
         tag: hardenedbsd-15-latest
         name: "HardenedBSD 15 UFS image"
         artifacts: |
-          hardenedbsd-15.0-ufs-amd64.raw
-          hardenedbsd-15.0-ufs-amd64.raw.sha256
+          hardenedbsd-15.0-ufs-amd64.raw.xz
         allowUpdates: true
         generateReleaseNotes: false
 
