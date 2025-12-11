@@ -23,6 +23,7 @@ func InstallFiles() error {
 		{"cp", "etc/rc.conf", "/mnt/etc/rc.conf"},
 		{"cp", "etc/ssh/sshd_config", "/mnt/etc/ssh/sshd_config"},
 		{"cp", "etc/rc.local", "/mnt/etc/rc.local"},
+		{"cp", "boot/loader.conf", "/mnt/boot/loader.conf"},
 	}
 	for _, command := range commands {
 		err := cmd.Run(exec.Command(command[0], command[1:]...))
