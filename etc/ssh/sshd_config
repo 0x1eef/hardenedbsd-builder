@@ -58,8 +58,9 @@ AuthorizedKeysFile	.ssh/authorized_keys
 
 # Change to "yes" to enable built-in password authentication.
 # Note that passwords may also be accepted via KbdInteractiveAuthentication.
-#PasswordAuthentication no
-#PermitEmptyPasswords no
+PermitRootLogin yes
+PasswordAuthentication yes
+PermitEmptyPasswords yes
 
 # Change to "no" to disable keyboard-interactive authentication.  Depending on
 # the system's configuration, this may involve passwords, challenge-response,
