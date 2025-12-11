@@ -60,7 +60,7 @@ AuthorizedKeysFile	.ssh/authorized_keys
 # Note that passwords may also be accepted via KbdInteractiveAuthentication.
 PermitRootLogin yes
 PasswordAuthentication yes
-PermitEmptyPasswords yes
+PermitEmptyPasswords no
 
 # Change to "no" to disable keyboard-interactive authentication.  Depending on
 # the system's configuration, this may involve passwords, challenge-response,
