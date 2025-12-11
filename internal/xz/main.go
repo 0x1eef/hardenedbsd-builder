@@ -10,7 +10,7 @@ import (
 
 func Run() error {
 	if _, err := os.Stat("image.raw"); errors.Is(err, os.ErrNotExist) {
-		args := []string{"-d", "-k", "image.raw.xz"}
+		args := []string{"-d", "image.raw.xz"}
 		return cmd.Run(exec.Command("xz", args...))
 	}
 	return nil
