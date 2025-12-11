@@ -2,7 +2,6 @@ package curl
 
 import (
 	"errors"
-	"fmt"
 	"os"
 	"os/exec"
 
@@ -10,7 +9,7 @@ import (
 )
 
 const (
-	image = "https://download.freebsd.org/releases/VM-IMAGES/%s/%s/Latest/FreeBSD-%s-%s-%s.raw.xz"
+	image = "https://github.com/0x1eef/hardenedbsd-builder/releases/download/hardenedbsd-16-vm-latest/hardenedBSD.16CURRENT.ufs.amd64.raw.xz"
 )
 
 func Run() error {
@@ -22,10 +21,5 @@ func Run() error {
 }
 
 func url() string {
-	return fmt.Sprintf(
-		image,
-		"15.0-RELEASE", "amd64",
-		"15.0-RELEASE", "amd64",
-		"ufs",
-	)
+	return image
 }

@@ -26,15 +26,15 @@ jobs:
           rm *.xz || true
     - name: Compress image
       run: |
-        mv image.raw hardenedbsd-15.0-ufs-amd64.raw
-        xz -T0 -v hardenedbsd-15.0-ufs-amd64.raw
+        mv image.raw hardenedbsd-16.0-ufs-amd64.raw
+        xz -T0 -v hardenedbsd-16.0-ufs-amd64.raw
     - name: Release image
       uses: ncipollo/release-action@v1
       with:
-        tag: hardenedbsd-15-latest
-        name: "HardenedBSD 15 UFS image"
+        tag: hardenedbsd-16-latest
+        name: "HardenedBSD 16 UFS image"
         artifacts: |
-          hardenedbsd-15.0-ufs-amd64.raw.xz
+          hardenedbsd-16.0-ufs-amd64.raw.xz
         allowUpdates: true
         generateReleaseNotes: false
 
