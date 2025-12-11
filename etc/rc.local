@@ -11,5 +11,8 @@ chmod 700 /home/runner/.ssh
 chmod 600 /home/runner/.ssh/authorized_keys
 chown runner:runner /home/runner/.ssh/authorized_keys
 
+# Set root password
+echo "beastie" | pw usermod root -h 0
+
 # Print info for debugging
 echo "VM setup complete for GitHub Actions"
