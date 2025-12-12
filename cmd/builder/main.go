@@ -25,6 +25,9 @@ func main() {
 	if err := disk.Unmount(); err != nil {
 		abort("error: %v\n", err)
 	}
+	if err := xz.Compress(); err != nil {
+		abort("error: %v\n", err)
+	}
 }
 
 func abort(s string, v ...any) {

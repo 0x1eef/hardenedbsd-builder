@@ -15,3 +15,8 @@ func Run() error {
 	}
 	return nil
 }
+
+func Compress() error {
+	args := []string{"-T", "0", "-z", "image.raw"}
+	return cmd.Run(exec.Command("xz", args...))
+}

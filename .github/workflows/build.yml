@@ -26,8 +26,7 @@ jobs:
           rm *.xz || true
     - name: Compress image
       run: |
-        mv image.raw hardenedbsd-16.0-ufs-amd64.raw
-        xz -T0 -v hardenedbsd-16.0-ufs-amd64.raw
+        mv image.raw.xz hardenedbsd-16.0-ufs-amd64.raw.xz
     - name: Release image
       uses: ncipollo/release-action@v1
       with:
