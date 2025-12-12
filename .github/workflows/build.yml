@@ -1,4 +1,4 @@
-name: Build HardenedBSD Image
+name: VM Modifications
 on:
   push:
     branches:
@@ -11,7 +11,7 @@ permissions:
 jobs:
   HBSD_16CURRENT_UFS_AMD64_MODIFIED:
     runs-on: ubuntu-latest
-    name: Build image
+    name: 16CURRENT_UFS_AMD64
     steps:
     - uses: actions/checkout@v4
     - name: Build image
@@ -41,7 +41,7 @@ jobs:
 
   HBSD_15STABLE_UFS_AMD64_MODIFIED:
     runs-on: ubuntu-latest
-    name: Build image
+    name: 15STABLE_UFS_AMD64
     steps:
     - uses: actions/checkout@v4
     - name: Build image
