@@ -10,9 +10,10 @@ import (
 )
 
 var (
+	base = "https://github.com/0x1eef/hardenedbsd-builder/releases/download/"
 	urls = map[string]string{
-		"16-CURRENT": "https://github.com/0x1eef/hardenedbsd-builder/releases/download/16CURRENT_UFS_AMD64_ORIGINAL/hardenedbsd-vm.raw.xz",
-		"15-STABLE":  "https://github.com/0x1eef/hardenedbsd-builder/releases/download/15STABLE_UFS_AMD64_ORIGINAL/hardenedbsd-vm.raw.xz",
+		"16-CURRENT": fmt.Sprintf("%s/16CURRENT_UFS_AMD64_ORIGINAL/hardenedbsd-vm.raw.xz", base),
+		"15-STABLE":  fmt.Sprintf("%s/15STABLE_UFS_AMD64_ORIGINAL/hardenedbsd-vm.raw.xz", base),
 	}
 )
 
