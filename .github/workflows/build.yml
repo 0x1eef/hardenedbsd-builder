@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  16CURRENT_UFS_AMD64_MODIFIED:
     runs-on: ubuntu-latest
     name: Build image
     steps:
@@ -25,7 +25,7 @@ jobs:
           go version
           cd ${GITHUB_WORKSPACE}
           go mod tidy
-          go run ./...
+          go run ./... -r 16-CURRENT
     - name: Finalize image
       run: |
         mv image.raw.xz hardenedbsd-vm.raw.xz
@@ -33,9 +33,38 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         tag: 16CURRENT_UFS_AMD64_MODIFIED
-        name: "16-CURRENT UFS AMD64 (MODIFIED)"
+        name: "16CURRENT_UFS_AMD64_MODIFIED"
         artifacts: |
           hardenedbsd-vm.raw.xz
         allowUpdates: true
         generateReleaseNotes: false
 
+ 15STABLE_UFS_AMD64_MODIFIED:
+    runs-on: ubuntu-latest
+    name: Build image
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build image
+      id: build
+      uses: vmactions/freebsd-vm@v1
+      with:
+        release: "15.0"
+        usesh: true
+        run: |
+          pkg install -y curl go git
+          go version
+          cd ${GITHUB_WORKSPACE}
+          go mod tidy
+          go run ./... -r 15-STABLE
+    - name: Finalize image
+      run: |
+        mv image.raw.xz hardenedbsd-vm.raw.xz
+    - name: Release image
+      uses: ncipollo/release-action@v1
+      with:
+        tag: 15STABLE_UFS_AMD64_MODIFIED
+        name: "15STABLE_UFS_AMD64_MODIFIED"
+        artifacts: |
+          hardenedbsd-vm.raw.xz
+        allowUpdates: true
+        generateReleaseNotes: false
