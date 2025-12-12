@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  16CURRENT_UFS_AMD64_MODIFIED:
+  HBSD_16CURRENT_UFS_AMD64_MODIFIED:
     runs-on: ubuntu-latest
     name: Build image
     steps:
@@ -39,7 +39,7 @@ jobs:
         allowUpdates: true
         generateReleaseNotes: false
 
-  15STABLE_UFS_AMD64_MODIFIED:
+  HBSD_15STABLE_UFS_AMD64_MODIFIED:
     runs-on: ubuntu-latest
     name: Build image
     steps:
