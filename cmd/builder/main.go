@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 
@@ -9,8 +10,12 @@ import (
 	"github.com/hardenedbsd/hardenedbsd-builder/internal/xz"
 )
 
+var (
+	release string
+)
+
 func main() {
-	if err := curl.Run(); err != nil {
+	if err := curl.Run(release); err != nil {
 		abort("error: %v\n", err)
 	}
 	if err := xz.Run(); err != nil {
@@ -33,4 +38,9 @@ func main() {
 func abort(s string, v ...any) {
 	fmt.Fprintf(os.Stderr, s, v...)
 	os.Exit(1)
+}
+
+func init() {
+	flag.StringVar(&release, "r", "", "The release. Options: 16-CURRENT, 15-STABLE")
+	flag.Parse()
 }
