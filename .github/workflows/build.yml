@@ -28,14 +28,14 @@ jobs:
           go run ./...
     - name: Finalize image
       run: |
-        mv image.raw.xz hardenedbsd-16.0-ufs-amd64.raw.xz
+        mv image.raw.xz hardenedbsd-vm.raw.xz
     - name: Release image
       uses: ncipollo/release-action@v1
       with:
-        tag: hardenedbsd-16-latest
-        name: "HardenedBSD 16 UFS image"
+        tag: 16CURRENT_UFS_AMD64_MODIFIED
+        name: "16-CURRENT UFS AMD64 (MODIFIED)"
         artifacts: |
-          hardenedbsd-16.0-ufs-amd64.raw.xz
+          hardenedbsd-vm.raw.xz
         allowUpdates: true
         generateReleaseNotes: false
 

@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	image = "https://github.com/0x1eef/hardenedbsd-builder/releases/download/hardenedbsd-16-vm-latest/hardenedBSD.16CURRENT.ufs.amd64.raw.xz"
+	image = "https://github.com/0x1eef/hardenedbsd-builder/releases/download/16CURRENT_UFS_AMD64_ORIGINAL/hardenedbsd-vm.raw.xz"
 )
 
 func Run() error {
