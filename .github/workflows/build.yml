@@ -23,8 +23,7 @@ jobs:
           cd ${GITHUB_WORKSPACE}
           go mod tidy
           go run ./...
-          rm *.xz || true
-    - name: Compress image
+    - name: Finalize image
       run: |
         mv image.raw.xz hardenedbsd-16.0-ufs-amd64.raw.xz
     - name: Release image
