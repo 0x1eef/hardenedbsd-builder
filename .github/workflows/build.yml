@@ -26,9 +26,6 @@ jobs:
           cd ${GITHUB_WORKSPACE}
           go mod tidy
           go run ./... -r 16-CURRENT
-    - name: Finalize image
-      run: |
-        mv image.raw.xz hardenedbsd-vm.raw.xz
     - name: Release image
       uses: ncipollo/release-action@v1
       with:
@@ -56,9 +53,6 @@ jobs:
           cd ${GITHUB_WORKSPACE}
           go mod tidy
           go run ./... -r 15-STABLE
-    - name: Finalize image
-      run: |
-        mv image.raw.xz hardenedbsd-vm.raw.xz
     - name: Release image
       uses: ncipollo/release-action@v1
       with:
