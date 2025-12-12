@@ -39,7 +39,7 @@ jobs:
         allowUpdates: true
         generateReleaseNotes: false
 
- 15STABLE_UFS_AMD64_MODIFIED:
+  15STABLE_UFS_AMD64_MODIFIED:
     runs-on: ubuntu-latest
     name: Build image
     steps:
