@@ -18,8 +18,8 @@ func Mount() error {
 
 func InstallFiles() error {
 	commands := [][]string{
-		{"mkdir", "-p", "/mnt/home/runner/.ssh"},
-		{"cp", "keys/hardenedbsd-runner.pub", "/mnt/home/runner/.ssh/authorized_keys"},
+		{"mkdir", "-p", "/mnt/root/.ssh"},
+		{"cp", "keys/id_ed25519.pub", "/mnt/root/.ssh/authorized_keys"},
 		{"cp", "etc/rc.conf", "/mnt/etc/rc.conf"},
 		{"cp", "etc/ssh/sshd_config", "/mnt/etc/ssh/sshd_config"},
 		{"cp", "etc/rc.local", "/mnt/etc/rc.local"},

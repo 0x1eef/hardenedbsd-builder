@@ -1,18 +1,7 @@
 #!/bin/sh
+set -x
 
-# Add runner user if not exists
-id runner >/dev/null 2>&1 || pw useradd runner -m -s /bin/sh
-
-# Ensure .ssh directory exists and set permissions
-mkdir -p /home/runner/.ssh
-chmod 700 /home/runner/.ssh
-
-# Set authorized_keys permissions
-chmod 600 /home/runner/.ssh/authorized_keys
-chown runner:runner /home/runner/.ssh/authorized_keys
-
-# Set root password
-echo "beastie" | pw usermod root -h 0
-
-# Print info for debugging
-echo "VM setup complete for GitHub Actions"
+chmod u=rwx,go= /root
+chmod u=rwx,go= /root/.ssh
+chmod u=rw,go= /root/.ssh/authorized_keys
+echo "hardenedbsd" | pw usermod root -h 0
