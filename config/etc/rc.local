@@ -1,7 +1,17 @@
 #!/bin/sh
 set -x
 
-chmod u=rwx,go= /root
-chmod u=rwx,go= /root/.ssh
-chmod u=rw,go= /root/.ssh/authorized_keys
+pw useradd \
+  -n runner \
+  -u 1001 \
+  -d /home/runner \
+  -c "Github action runner"
+
+chmod u=rwx,go= /home/runner
+chmod u=rwx,go= /home/runner/.ssh
+chmod u=rw,go= /home/runner/.ssh/authorized_keys
+
 echo "hardenedbsd" | pw usermod root -h 0
+echo "hardenedbsd" | pw usermod runner -h 0
+
+sysctl security.mac.do.rules='uid=1001>any'
