@@ -12,7 +12,7 @@ import (
 func Decompress(archive string) (string, error) {
 	dest := strings.TrimSuffix(archive, ".xz")
 	if _, err := os.Stat(dest); errors.Is(err, os.ErrNotExist) {
-		args := []string{"-d", archive + ".xz"}
+		args := []string{"-d", archive}
 		return dest, cmd.Run(exec.Command("xz", args...))
 	}
 	return dest, nil
