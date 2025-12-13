@@ -25,6 +25,6 @@ sysctl security.mac.do.rules='uid=1001>any' 2>&1 >/dev/null
 echo "[-] OK"
 
 echo "[-] Install packages"
-pkg bootstrap
+pkg bootstrap -y
 /usr/local/sbin/pkg-static install -y rsync
 echo "[-] OK"
