@@ -1,8 +1,5 @@
-name: VM Modifications
+name: VM
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:

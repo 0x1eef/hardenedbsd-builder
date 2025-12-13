@@ -18,8 +18,8 @@ func Mount(img string) error {
 
 func InstallFiles() error {
 	commands := [][]string{
-		{"mkdir", "-p", "/mnt/root/.ssh"},
-		{"cp", "config/keys/id_ed25519.pub", "/mnt/root/.ssh/authorized_keys"},
+		{"mkdir", "-p", "/mnt/home/runner/.ssh"},
+		{"cp", "config/keys/id_ed25519.pub", "/mnt/home/runner/.ssh/authorized_keys"},
 		{"cp", "config/etc/rc.conf", "/mnt/etc/rc.conf"},
 		{"cp", "config/etc/ssh/sshd_config", "/mnt/etc/ssh/sshd_config"},
 		{"cp", "config/etc/rc.local", "/mnt/etc/rc.local"},
