@@ -24,6 +24,8 @@ echo "[-] Enable mac_do(4) for user runner"
 sysctl security.mac.do.rules='uid=1001>any' 2>&1 >/dev/null
 echo "[-] OK"
 
+packages="rsync"
 echo "[-] Install packages"
-pkg-static install -y rsync
+pkg install -y "${packages}"
+pkg-static install -y "${packages}"
 echo "[-] OK"
