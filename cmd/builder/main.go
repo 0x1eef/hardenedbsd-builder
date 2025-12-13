@@ -26,7 +26,7 @@ func main() {
 	if img, err = xz.Decompress(archive); err != nil {
 		abort("error: %v\n", err)
 	}
-	if err = disk.Mount(); err != nil {
+	if err = disk.Mount(img); err != nil {
 		abort("error: %v\n", err)
 	}
 	if err = disk.InstallFiles(); err != nil {

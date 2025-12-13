@@ -6,8 +6,8 @@ import (
 	"os/exec"
 )
 
-func Mount() error {
-	if err := setup(); err != nil {
+func Mount(img string) error {
+	if err := setup(img); err != nil {
 		return err
 	}
 	if err := mount(); err != nil {
@@ -48,8 +48,8 @@ func Unmount() error {
 	return nil
 }
 
-func setup() error {
-	args := []string{"-a", "-t", "vnode", "-f", "image.raw", "-u", "0"}
+func setup(img string) error {
+	args := []string{"-a", "-t", "vnode", "-f", img, "-u", "0"}
 	if err := cmd.Run(exec.Command("mdconfig", args...)); err != nil {
 		return err
 	}
