@@ -18,17 +18,17 @@ var (
 	}
 )
 
-func Run(release string) error {
+func Run(release string) (string, error) {
 	var (
 		url string
 		ok  bool
 	)
 	if url, ok = urls[release]; !ok {
-		return fmt.Errorf("unknown release (%s)", release)
+		return "", fmt.Errorf("unknown release (%s)", release)
 	}
 	if _, err := os.Stat(dest); errors.Is(err, os.ErrNotExist) {
 		args := []string{"-L", "-o", dest, url}
-		return cmd.Run(exec.Command("curl", args...))
+		return dest, cmd.Run(exec.Command("curl", args...))
 	}
-	return nil
+	return dest, nil
 }

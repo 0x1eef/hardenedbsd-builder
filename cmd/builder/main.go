@@ -15,22 +15,27 @@ var (
 )
 
 func main() {
-	if err := curl.Run(release); err != nil {
+	var (
+		archive string
+		img     string
+		err     error
+	)
+	if archive, err = curl.Run(release); err != nil {
 		abort("error: %v\n", err)
 	}
-	if err := xz.Run(); err != nil {
+	if img, err = xz.Decompress(archive); err != nil {
 		abort("error: %v\n", err)
 	}
-	if err := disk.Mount(); err != nil {
+	if err = disk.Mount(); err != nil {
 		abort("error: %v\n", err)
 	}
-	if err := disk.InstallFiles(); err != nil {
+	if err = disk.InstallFiles(); err != nil {
 		abort("error: %v\n", err)
 	}
-	if err := disk.Unmount(); err != nil {
+	if err = disk.Unmount(); err != nil {
 		abort("error: %v\n", err)
 	}
-	if err := xz.Compress(); err != nil {
+	if err = xz.Compress(img); err != nil {
 		abort("error: %v\n", err)
 	}
 }
