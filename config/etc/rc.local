@@ -6,19 +6,20 @@ pw useradd \
   -u 1001 \
   -d /home/runner \
   -c "Github action runner"
-echo "OK"
+echo "[-] OK"
 
 echo "[-] Ensure SSH access"
 chmod u=rwx,go= /home/runner
 chmod u=rwx,go= /home/runner/.ssh
 chmod u=rw,go= /home/runner/.ssh/authorized_keys
-echo "OK"
+chown -R runner /home/runner
+echo "[-] OK"
 
 echo "[-] Set passwords for root and runner"
 echo "hardenedbsd" | pw usermod root -h 0
 echo "hardenedbsd" | pw usermod runner -h 0
-echo "OK"
+echo "[-] OK"
 
 echo "[-] Enable mac_do(4) for user runner"
-sysctl security.mac.do.rules='uid=1001>any'
-echo "OK"
+sysctl security.mac.do.rules='uid=1001>any' 2>&1 >/dev/null
+echo "[-] OK"
