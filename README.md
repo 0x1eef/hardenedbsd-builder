@@ -3,9 +3,9 @@
 #### Introduction
 
 This repository modifies a raw virtual machine image for a given
-hardenedBSD release. This allows GitHub Action runners to execute
+hardenedBSD release. This allows GitHub action runners to execute
 tests and builds on hardenedBSD virtual machines. If you just want
-to use the GitHub Action, then see the
+to use the GitHub action, then see the
 [hardenedbsd-vm](https://github.com/0x1eef/hardenedbsd-vm)
 repository.
 
