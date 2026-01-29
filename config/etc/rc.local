@@ -21,6 +21,7 @@ echo "hardenedbsd" | pw usermod runner -h 0
 echo "[-] OK"
 
 echo "[-] Enable mac_do(4) for user runner"
+kldload mac_do
 sysctl security.mac.do.rules='uid=1001>any' 2>&1 >/dev/null
 echo "[-] OK"
 
