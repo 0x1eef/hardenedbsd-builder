@@ -26,5 +26,9 @@ sysctl security.mac.do.rules='uid=1001>any' 2>&1 >/dev/null
 echo "[-] OK"
 
 echo "[-] Install packages"
-/usr/local/sbin/pkg-static install -y rsync
+# VM images are built separately from the package repository
+# This can cause a version mismatch between the two
+# Allow pkg(8) to proceed despite the OS version mismatch
+IGNORE_OSVERSION=yes pkg bootstrap -y
+pkg-static install -y rsync
 echo "[-] OK"
