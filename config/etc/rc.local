@@ -30,5 +30,5 @@ echo "[-] Install packages"
 # This can cause a version mismatch between the two
 # Allow pkg(8) to proceed despite the OS version mismatch
 IGNORE_OSVERSION=yes pkg bootstrap -y
-pkg-static install -y rsync
+PATH="/usr/local/sbin:${PATH}" pkg-static install -y rsync
 echo "[-] OK"
