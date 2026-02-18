@@ -33,3 +33,8 @@ once hardenedBSD provides official images.
 * [github.com/@0x1eef](https://github.com/0x1eef/hardenedbsd-vm)
 * [git.hardenedBSD.org/@0x1eef](https://git.hardenedBSD.org/0x1eef/hardenedbsd-vm)
 * [bsd.cafe/@0x1eef](https://brew.bsd.cafe/0x1eef/hardenedbsd-vm)
+
+## License
+
+[BSD Zero Clause](https://choosealicense.com/licenses/0bsd/) <br>
+See [LICENSE](./LICENSE)
