@@ -21,7 +21,7 @@ See [.github/workflows/build.yml](.github/workflows/build.yml) for details.
 
 **Documentation**
 
-* 1. [How to build a hardenedBSD VM image](https://0x1eef.github.io/posts/how-to-build-a-hardenedbsd-vm-image/)
+1. [How to build a hardenedBSD VM image](https://0x1eef.github.io/posts/how-to-build-a-hardenedbsd-vm-image/)
 
 ## Sources
 
