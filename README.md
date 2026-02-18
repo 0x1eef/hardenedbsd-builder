@@ -19,15 +19,6 @@ repository.
 
 See [.github/workflows/build.yml](.github/workflows/build.yml) for details.
 
-**Note**
-
-The [hardenedbsd-builder](https://github.com/0x1eef/hardenedbsd-builder)
-repository expects to be run on either FreeBSD or hardenedBSD hosts. You
-can see how this is acheived via a GitHub workflow in
-[.github/workflows/build.yml](.github/workflows/build.yml). The original virtual
-machine images are built manually from `/usr/src/release` and this may change
-once hardenedBSD provides official images.
-
 ## Sources
 
 * [github.com/@0x1eef](https://github.com/0x1eef/hardenedbsd-vm)
